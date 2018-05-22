@@ -1,0 +1,43 @@
+<div class="books-table">
+	<h1><strong>Books</strong></h1>
+	<table>
+		<thead>
+			<tr>
+				<th><strong>Title</strong></th>
+				<th><strong>Body</strong></th>
+			</tr>
+		</thead>
+		<% @reviews.each do |review| %>
+			<tbody>
+				<tr>
+					<td><%= review.title %></td>
+					<td><%= review.body %></td>
+					<td><%= link_to "Show", review_path(review) %></td>
+					<td><%= link_to "Edit", edit_review_path(review) %></td>
+					<td><%= link_to "Destroy", review_path(review), method: :delete, "data-confirm" => "Are you sure?" %></td>
+				</tr>
+			</tbody>
+		<% end %>
+	</table>
+</div>
+
+<div class="new-book">
+	<h2>New book</h2>
+	<div class="new-book-form">
+		<%= form_for(@review) do |f| %>
+	 	<div class="field">
+			<h4>title</h4>
+			<%= f.text_field :title, :value => @title %>
+	 	</div>
+	 	<div class="field">
+		    <h4>body</h4>
+		    <%= f.text_area :body, :value => @body %>
+	 	</div>
+	 	<div class="action">
+	 		<%= f.submit 'Create Book' %>
+	 	</div>
+		<% end %>
+	</div>
+</div>
+
+

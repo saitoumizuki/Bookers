@@ -1,0 +1,12 @@
+<p>
+	<strong>Title:</strong>
+	<%= @review.title %>
+</p>
+
+<p>
+	<strong>Body:</strong>
+	<%= @review.body %>
+</p>
+
+<%= link_to "Edit", edit_review_path(@review) %> |
+<a href="/reviews/new.html">Back</a>
